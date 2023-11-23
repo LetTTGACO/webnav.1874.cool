@@ -22,7 +22,7 @@ export default async function getNavLinks() {
       },
     },
   })
-  console.log(res)
+  // console.log(res)
   // console.log(mockList)
   return res
 }
