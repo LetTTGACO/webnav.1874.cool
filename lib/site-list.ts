@@ -1,4 +1,4 @@
-export const mockList = [
+export const siteList = [
   {
     "id": "clidwn4ok0004yvrsk3anm2vj",
     "icon": "https://cos.codefe.top/images/ui-ux-icon.png",

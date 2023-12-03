@@ -3,18 +3,18 @@ import Image from "next/image"
 
 import { cn } from "@/lib/utils"
 import { useEffect, useState } from "react"
-import { Category } from "@prisma/client"
+import {CategoryWithLinks, NavItems} from "@/app/links";
 
 
-export interface SidebarProps { 
+export interface SidebarProps {
   className?: string,
-  navItems: Pick<Category, "title" | "icon" | "id">[],
+  navItems: CategoryWithLinks[],
 }
 
 export function Sidebar({ className, navItems }: SidebarProps) {
   const [activeTabId, setActiveTabId] = useState(navItems[0].id);
   useEffect(() => {
-    const ele = document.getElementById(activeTabId);  
+    const ele = document.getElementById(activeTabId);
     const elePosition = (ele?.getBoundingClientRect().top || 0);
     const offsetPosition = elePosition + window.pageYOffset - 75;
     window.scrollTo({

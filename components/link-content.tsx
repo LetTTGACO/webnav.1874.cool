@@ -1,9 +1,8 @@
-import Image from "next/image"
-import { CategoryWithLinks } from "@/app/links"
-import { Link as SiteLink } from "@prisma/client"
+import Image from "next/image";
 import Link from "next/link"
+import { CategoryWithLinks, NavItems } from "@/app/links";
 
-export function LinkItem({ link }: { link: SiteLink }) {
+export function LinkItem({ link }: { link: NavItems }) {
   return (
     <Link
       href={link.url}
@@ -13,28 +12,28 @@ export function LinkItem({ link }: { link: SiteLink }) {
         <div className="flex items-center">
           <div className="mr-3 flex h-10 w-10 overflow-hidden rounded-full">
             {
-              link.icon 
+              link.icon
                 ? <Image
                     src={link.icon}
                     className="object-fill"
                     alt=""
                     width={40}
                     height={40}
-                  /> 
+                  />
                 : <span className="h-full w-full rounded-full bg-purple-500 text-center font-bold leading-10">{ link.title.slice(0, 1) }</span>
             }
           </div>
           <span className="text-xl font-bold text-primary">{ link.title }</span>
         </div>
         <div className="mt-2 line-clamp-2 text-sm text-primary">
-          { link.description }   
+          { link.description }
         </div>
       </div>
     </Link>
   )
 }
 
-export function LinkContent({ navResources }: { navResources: CategoryWithLinks }) {
+export function LinkContent({ navResources }: { navResources: CategoryWithLinks[] }) {
   return (
     <div className="w-full pt-4">
       <div className="mx-auto w-full px-4 md:px-6">

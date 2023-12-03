@@ -1,30 +1,21 @@
-import type { Prisma } from "@prisma/client"
-
-// import prisma from "@/lib/db"
-import { mockList } from "@/lib/mockList"
+import { siteList } from "@/lib/site-list"
 
 export default async function getNavLinks() {
-  // const res = await prisma.category.findMany({
-  //   orderBy: [
-  //     {
-  //       rank: "asc",
-  //     },
-  //   ],
-  //   include: {
-  //     links: {
-  //       orderBy: {
-  //         rank: "asc",
-  //       },
-  //       where: {
-  //         public: true,
-  //         status: 1,
-  //       },
-  //     },
-  //   },
-  // })
-  // // console.log(res)
-  // console.log(mockList)
-  return mockList
+  return siteList
 }
 
-export type CategoryWithLinks = Prisma.PromiseReturnType<typeof getNavLinks>
+export type CategoryWithLinks = {
+  id: string
+  icon: string
+  title: string
+  links: NavItems[]
+  [key: string]: any
+}
+
+export interface NavItems {
+  icon: string
+  url: string
+  title: string
+  description: string
+  [key: string]: any
+}
