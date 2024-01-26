@@ -4,7 +4,6 @@ import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { useEffect, useState } from "react"
 import { CategoryWithLinks } from "@/app/links";
-import Logo from "@/public/logo.png"
 
 
 export interface SidebarProps {
@@ -27,7 +26,7 @@ export function Sidebar({ className, navItems }: SidebarProps) {
       <nav className="after:h-[calc(100vh - 65px)] block min-h-screen w-60 flex-row flex-nowrap bg-gray-50 font-semibold sm:bg-background sm:px-6 sm:pb-6">
         <a href="" className="mx-6 hidden h-32 flex-col items-center justify-center sm:flex">
           <Image
-            src={Logo}
+            src="https://image.1874.cool/1874/202401262216541.png"
             alt=""
             width={128}
             height={128}
